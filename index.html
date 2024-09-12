@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdóname</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #si-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no-button {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Me perdonas?</h1>
+        <p>Lo siento mucho, por favor dame otra oportunidad.</p>
+        <div class="button-container">
+            <button class="button" id="si-button" onclick="respuesta('si')">Sí</button>
+            <button class="button" id="no-button" onclick="respuesta('no')">No</button>
+        </div>
+    </div>
+    <script>
+        function respuesta(respuesta) {
+            if (respuesta === 'si') {
+                alert('¡Gracias por perdonarme! ❤️');
+            } else {
+                alert('Por favor, reconsidera. 😢');
+            }
+        }
+
+        setInterval(moverBotonNoAleatoriamente, 500);
+
+        function moverBotonNoAleatoriamente() {
+            var botonNo = document.getElementById('no-button');
+            var maxX = window.innerWidth - botonNo.offsetWidth;
+            var maxY = window.innerHeight - botonNo.offsetHeight;
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+            botonNo.style.left = randomX + 'px';
+            botonNo.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
